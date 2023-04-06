@@ -1,6 +1,14 @@
 @use "./variables" as *;
 
-.start {
+.overlay {
+  background: url(./image/background1.png) no-repeat fixed center;
+  background-size: contain;
+  background-origin: border-box;
+  width: auto;
+  height: 800px;
+  background-color: $secondary-color;
+  display: none;
+
   &__button {
     width: auto;
     padding: 14px;
@@ -8,11 +16,11 @@
     border-radius: 10px;
     box-shadow: 5px 5px 5px 0;
     background-color: $secondary-color;
-    margin-top: 340px;
-    margin-left: 680px;
+    margin-top: 400px;
+    margin-left: 380px;
     color: black;
     border: solid 3px black;
-    font-size: 30px;
+    font-size: 20px;
   }
 
   &__button:hover {

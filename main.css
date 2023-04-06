@@ -1,22 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Special+Elite&display=swap");
-.start__button {
+.overlay {
+  background: url(./image/background1.png) no-repeat fixed center;
+  background-size: contain;
+  background-origin: border-box;
+  width: auto;
+  height: 800px;
+  background-color: #fcde67;
+  display: none;
+}
+.overlay__button {
   width: auto;
   padding: 14px;
   font-family: "Press Start 2P", "sans-serif";
   border-radius: 10px;
   box-shadow: 5px 5px 5px 0;
   background-color: #fcde67;
-  margin-top: 340px;
-  margin-left: 680px;
+  margin-top: 400px;
+  margin-left: 380px;
   color: black;
   border: solid 3px black;
-  font-size: 30px;
+  font-size: 20px;
 }
-.start__button:hover {
+.overlay__button:hover {
   color: #f0a04b;
   cursor: pointer;
 }
-.start__button:active {
+.overlay__button:active {
   transform: translateY(4px);
 }
 
@@ -27,7 +36,6 @@
 }
 
 body {
-  background-image: url(./image/background2.png);
-  background-repeat: no-repeat;
+  background-image: url(./image/background2.jpg);
   background-size: cover;
 }/*# sourceMappingURL=main.css.map */
