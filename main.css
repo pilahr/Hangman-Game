@@ -1,16 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Special+Elite&display=swap");
-.start {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.start__heading {
-  font-family: "Special Elite", "sans-serif";
-  font-size: 120px;
-  color: rgb(220, 217, 217);
-  margin-top: 150px;
-  margin-left: 420px;
-}
 .start__button {
   width: auto;
   padding: 14px;
@@ -18,8 +6,8 @@
   border-radius: 10px;
   box-shadow: 5px 5px 5px 0;
   background-color: #fcde67;
-  margin-top: 140px;
-  margin-left: 200px;
+  margin-top: 340px;
+  margin-left: 680px;
   color: black;
   border: solid 3px black;
   font-size: 30px;
@@ -39,7 +27,7 @@
 }
 
 body {
-  background-image: url(./image/background1.jpg);
+  background-image: url(./image/background2.png);
   background-repeat: no-repeat;
   background-size: cover;
 }/*# sourceMappingURL=main.css.map */
