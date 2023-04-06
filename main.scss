@@ -1,0 +1,16 @@
+@use "./variables" as *;
+@use "./components" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Special+Elite&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(./image/background1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

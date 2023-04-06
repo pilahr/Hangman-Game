@@ -1,0 +1,38 @@
+@use "./variables" as *;
+
+.start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__heading {
+    font-family: $primary-font;
+    font-size: 120px;
+    color: rgb(220, 217, 217);
+    margin-top: 150px;
+    margin-left: 420px;
+  }
+
+  &__button {
+    width: auto;
+    padding: 14px;
+    font-family: $secondary-font;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 0;
+    background-color: $secondary-color;
+    margin-top: 140px;
+    margin-left: 200px;
+    color: black;
+    border: solid 3px black;
+    font-size: 30px;
+  }
+
+  &__button:hover {
+    color: $primary-color;
+    cursor: pointer;
+  }
+
+  &__button:active {
+    transform: translateY(4px);
+  }
+}

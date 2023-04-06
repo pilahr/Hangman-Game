@@ -1,0 +1,25 @@
+.start {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+.start__heading {
+  font-family: "SpecialElite", "sans-serif";
+  color: white;
+}
+.start__button {
+  width: 180px;
+  padding: 14px;
+  font-family: "Press Start 2P", "sans-serif";
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0;
+  background-color: #fcde67;
+  margin: 100px;
+}
+.start__button:hover {
+  opacity: 5;
+  cursor: pointer;
+}
+.start__ button:active {
+  transform: translateY(4px);
+}
