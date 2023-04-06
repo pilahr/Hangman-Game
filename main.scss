@@ -13,3 +13,103 @@ body {
   background-image: url(./image/background2.jpg);
   background-size: cover;
 }
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-areas:
+      "image text-input"
+      "lives buttons"
+      "lives buttons";
+
+    &__hangman {
+      grid-area: image;
+      width: 90%;
+      margin-left: 30px;
+    }
+
+    &__lives {
+      grid-area: lives;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10px;
+      align-self: center;
+      img {
+        width: 15%;
+      }
+    }
+
+    .display {
+      &__letters {
+        grid-area: text-input;
+        font-size: 36px;
+        font-family: $secondary-font;
+        color: black;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin: 20px;
+      }
+    }
+    .gaming-buttons {
+      &__new-game,
+      &__give-up {
+        grid-area: buttons;
+        width: 200px;
+        padding: 14px;
+        font-family: $secondary-font;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px 0;
+        background-color: $game-button-color;
+        color: black;
+        border: solid 3px black;
+        font-size: 16px;
+      }
+      &__new-game:hover {
+        cursor: pointer;
+        color: white;
+      }
+
+      &__give-up:hover {
+        cursor: pointer;
+        color: white;
+      }
+
+      &__new-game:active {
+        transform: translateY(4px);
+      }
+
+      &__give-up:active {
+        transform: translateY(4px);
+      }
+    }
+  }
+
+  .alphabets {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    width: 50%;
+    grid-gap: 15px;
+
+    button {
+      font-size: 16px;
+      font-family: $secondary-font;
+      width: auto;
+      padding: 10px;
+      background-color: $secondary-color;
+      color: black;
+      border: solid 5px $primary-color;
+      border-radius: 10px;
+    }
+
+    button:hover {
+      cursor: pointer;
+      background-color: $game-button-color;
+    }
+
+    button:active {
+      transform: translateY(4px);
+    }
+  }
+}
