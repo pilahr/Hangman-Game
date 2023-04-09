@@ -12,3 +12,5 @@ const words = [
   "food",
   "remove",
 ];
+
+export default words;
