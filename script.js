@@ -46,6 +46,7 @@ const alphabets = [
 const startButton = document.querySelector(".overlay__button");
 const displayScreen = document.querySelector(".display__letters");
 const overlayPage = document.querySelector(".overlay");
+const newGameButton = document.querySelector(".gaming-buttons__new-game");
 
 //  ----- FUNCTION ----- //
 const insertLetters = () => {
@@ -85,5 +86,14 @@ const handleStartButton = (event) => {
   // + to show lives
 };
 
+// NEW GAME BUTTON
+const handleNewGameButtonClick = (event) => {
+  displayScreen.innerHTML = "";
+  randomWord = getRandomWord();
+  displayWordArea(randomWord);
+};
+
 // ----- EVENT LISTENER ----- //
 startButton.addEventListener("click", handleStartButton);
+
+newGameButton.addEventListener("click", handleNewGameButtonClick);
