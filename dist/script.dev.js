@@ -9,7 +9,6 @@ var displayScreen = document.querySelector(".display__letters");
 var overlayPage = document.querySelector(".overlay");
 var newGameButton = document.querySelector(".gaming-buttons__new-game");
 var giveUpButton = document.querySelector(".gaming-buttons__give-up");
-var alphabetsButtons = document.querySelectorAll(".alphabets button");
 var showLives = document.querySelector(".container__lives"); //  ----- FUNCTION ----- //
 // INSERT ALPHABETS BUTTONS
 
@@ -77,8 +76,18 @@ var checkExistingAlphabet = function checkExistingAlphabet(letter) {
       hasLostLife = false;
     }
   });
-}; // LIVES
+}; // ALPHABETS BUTTON
 
+
+var alphabetsButtons = document.querySelectorAll(".alphabets button");
+alphabetsButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    button.style.backgroundColor = "green";
+    checkExistingAlphabet(button.innerHTML);
+    loseOneLife();
+    hasLostLife = true;
+  });
+}); // LIVES
 
 var hasLostLife = true;
 var totalLives = [1, 2, 3, 4, 5];
@@ -103,7 +112,7 @@ var loseOneLife = function loseOneLife() {
 
 var gameOver = function gameOver() {
   if (totalLives.length === 0) {
-    alert("GAME OVER!");
+    alert("GAME OVER! NO CANDY FOR YOU");
   } else {
     return;
   }
@@ -112,19 +121,4 @@ var gameOver = function gameOver() {
 
 startButton.addEventListener("click", handleStartButton);
 newGameButton.addEventListener("click", handleNewGameButtonClick);
-giveUpButton.addEventListener("click", handleGiveUpButtonClick); // const handleAlphabetButtonClick = (event) => {
-//   button.style.backgroundColor = "red";
-//   checkExistingAlphabet(button.innerHTML);
-//   loseOneLife();
-//   hasLostLife = true;
-// };
-// ALPHABETS BUTTON -- not working yet
-
-alphabetsButtons.forEach(function (button) {
-  button.addEventListener("click", function () {
-    button.style.backgroundColor = "red";
-    checkExistingAlphabet(button.innerHTML);
-    loseOneLife();
-    hasLostLife = true;
-  });
-});
+giveUpButton.addEventListener("click", handleGiveUpButtonClick);

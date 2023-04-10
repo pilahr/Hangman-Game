@@ -51,6 +51,8 @@ const overlayPage = document.querySelector(".overlay");
 const newGameButton = document.querySelector(".gaming-buttons__new-game");
 const giveUpButton = document.querySelector(".gaming-buttons__give-up");
 
+const alphabetsButtons = document.querySelectorAll(".alphabets button");
+
 const showLives = document.querySelector(".container__lives");
 
 //  ----- FUNCTION ----- //
@@ -119,17 +121,12 @@ const checkExistingAlphabet = (letter) => {
   });
 };
 
-// ALPHABETS BUTTON
-const alphabetsButtons = document.querySelectorAll(".alphabets button");
-
-alphabetsButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    button.style.backgroundColor = "green";
-    checkExistingAlphabet(button.innerHTML);
-    loseOneLife();
-    hasLostLife = true;
-  });
-});
+const handleAlphabetButtonClick = (event) => {
+  document.body.style.backgroundColor = "red";
+  checkExistingAlphabet(button.innerHTML);
+  loseOneLife();
+  hasLostLife = true;
+};
 
 // LIVES
 let hasLostLife = true;
@@ -156,7 +153,7 @@ const loseOneLife = () => {
 // GAME OVER
 const gameOver = () => {
   if (totalLives.length === 0) {
-    alert("GAME OVER! NO CANDY FOR YOU");
+    alert("GAME OVER!");
   } else {
     return;
   }
@@ -168,3 +165,8 @@ startButton.addEventListener("click", handleStartButton);
 newGameButton.addEventListener("click", handleNewGameButtonClick);
 
 giveUpButton.addEventListener("click", handleGiveUpButtonClick);
+
+// ALPHABETS BUTTON -- not working yet
+alphabetsButtons.forEach((button) => {
+  button.addEventListener("click", handleAlphabetButtonClick);
+});
