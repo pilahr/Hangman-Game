@@ -1,4 +1,5 @@
-// import words from "./data/randomWords";
+// import words from "./randomWords";
+
 const words = [
   "happy",
   "snake",
@@ -42,13 +43,20 @@ const alphabets = [
   "y",
   "z",
 ];
+
 // ----- GET ELEMENTS ----- //
 const startButton = document.querySelector(".overlay__button");
 const displayScreen = document.querySelector(".display__letters");
 const overlayPage = document.querySelector(".overlay");
 const newGameButton = document.querySelector(".gaming-buttons__new-game");
 const giveUpButton = document.querySelector(".gaming-buttons__give-up");
+
+const alphabetsButtons = document.querySelectorAll(".alphabets button");
+
+const showLives = document.querySelector(".container__lives");
+
 //  ----- FUNCTION ----- //
+// INSERT ALPHABETS BUTTONS
 const insertLetters = () => {
   const alphabetsContainer = document.querySelector(".alphabets");
   alphabets.forEach((letter) => {
@@ -67,11 +75,11 @@ const getRandomWord = () => {
 
 // ADD WORD TO DISPLAY
 const addHtmlWord = (letter) => {
-  return `<p hidden-word="${letter}">_</p>`;
+  return `<p data-letter="${letter}">_</p>`;
 };
-const displayWordArea = (words) => {
-  for (let i = 0; i < words.length; i++) {
-    const letter = words[i];
+const displayWordArea = (word) => {
+  for (let i = 0; i < word.length; i++) {
+    const letter = word[i];
     const htmlWord = addHtmlWord(letter);
     displayScreen.innerHTML += htmlWord;
   }
@@ -80,10 +88,10 @@ const displayWordArea = (words) => {
 // ----- START BUTTON ----- //
 const handleStartButton = (event) => {
   overlayPage.style.display = "none";
-  displayScreen.innerHTML = "";
-  randomWord = getRandomWord();
+  getRandomWord();
   displayWordArea(randomWord);
-  // + to show lives
+  showPlayerLife();
+  return;
 };
 
 // NEW GAME BUTTON
@@ -91,15 +99,79 @@ const handleNewGameButtonClick = (event) => {
   displayScreen.innerHTML = "";
   randomWord = getRandomWord();
   displayWordArea(randomWord);
+  showPlayerLife();
 };
 
 // GIVE UP BUTTON
 const handleGiveUpButtonClick = (event) => {
   displayScreen.innerHTML = randomWord;
 };
+
+// CHECK EXISTING ALPHABET -- not working yet
+const checkExistingAlphabet = (letter) => {
+  const hiddenLetters = document.querySelectorAll(".display__letters p");
+
+  hiddenLetters.forEach((hiddenLetter) => {
+    const hidden = hiddenLetter.innerHTML == "_";
+    const letterElement = hiddenLetter.dataset.letter;
+    if (hidden && letterElement == letter) {
+      hiddenLetter.innerHTML = letter;
+      hasLostLife = false;
+    }
+  });
+};
+
+// LIVES
+let hasLostLife = true;
+
+let totalLives = [1, 2, 3, 4, 5];
+
+const showPlayerLife = () => {
+  showLives.innerHTML = "";
+  totalLives.forEach((life) => {
+    let htmlLife = `<img src="./image/candy.png" />`;
+    showLives.innerHTML += htmlLife;
+  });
+};
+
+const loseOneLife = () => {
+  if (hasLostLife) {
+    totalLives.pop();
+    showPlayerLife();
+    hasLostLife = true;
+    gameOver();
+  }
+};
+
+// GAME OVER
+const gameOver = () => {
+  if (totalLives.length === 0) {
+    alert("GAME OVER!");
+  } else {
+    return;
+  }
+};
+
 // ----- EVENT LISTENER ----- //
 startButton.addEventListener("click", handleStartButton);
 
 newGameButton.addEventListener("click", handleNewGameButtonClick);
 
 giveUpButton.addEventListener("click", handleGiveUpButtonClick);
+
+// const handleAlphabetButtonClick = (event) => {
+//   button.style.backgroundColor = "red";
+//   checkExistingAlphabet(button.innerHTML);
+//   loseOneLife();
+//   hasLostLife = true;
+// };
+
+// ALPHABETS BUTTON -- not working yet
+alphabetsButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    button.style.backgroundColor = "red";
+    checkExistingAlphabet(button.innerHTML);
+    loseOneLife();
+    hasLostLife = true;
+  });
+});

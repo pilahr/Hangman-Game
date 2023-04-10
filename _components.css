@@ -1,30 +1,30 @@
 .overlay {
-  background: url(./image/background1.png) no-repeat fixed center;
+  background: url(./image/background1.png) no-repeat;
   background-size: contain;
+  background-position: center;
   background-origin: border-box;
   width: 100%;
   height: 700px;
   background-color: #fcde67;
-  margin-left: 20px;
-  margin-right: 20px;
+  position: fixed;
 }
 .overlay__button {
-  width: 35%;
-  padding: 14px;
+  width: 25%;
+  padding: 7px;
   font-family: "Press Start 2P", "sans-serif";
   border-radius: 10px;
   box-shadow: 5px 5px 5px 0;
   background-color: #fcde67;
-  margin-top: 400px;
-  margin-left: 180px;
+  margin-top: 340px;
+  margin-left: 110px;
   margin-right: 120px;
   color: black;
   border: solid 3px black;
-  font-size: 14px;
+  font-size: 10px;
   text-decoration: none;
 }
 .overlay__button:hover {
-  color: #f0a04b;
+  color: white;
   cursor: pointer;
 }
 .overlay__button:active {
@@ -34,8 +34,9 @@
 .heading {
   font-family: "Press Start 2P", "sans-serif";
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   font-size: 20px;
+  color: white;
 }
 
 .container {
@@ -43,34 +44,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 130px;
 }
 .container__hangman {
-  width: 60%;
-  margin-top: 50px;
+  width: 50%;
+  margin-top: 10px;
 }
 .container__lives {
-  margin: 10px;
-  display: flex;
+  margin-top: 6px;
+  margin-left: 70px;
 }
 .container__lives img {
-  width: 10%;
-  margin: 5px;
+  width: 12%;
 }
 .container .display__letters {
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   font-family: "Press Start 2P", "sans-serif";
-  color: black;
+  color: white;
   margin: 20px;
-}
-.container .gaming-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .container .gaming-buttons__new-game, .container .gaming-buttons__give-up {
-  width: 200px;
+  width: 160px;
   padding: 14px;
   font-family: "Press Start 2P", "sans-serif";
   border-radius: 10px;
@@ -78,8 +73,8 @@
   background-color: #5bccf6;
   color: black;
   border: solid 3px black;
-  font-size: 14px;
-  margin: 20px;
+  font-size: 12px;
+  margin: 5px;
 }
 .container .gaming-buttons__new-game:hover {
   cursor: pointer;
@@ -99,21 +94,20 @@
 .alphabets {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-gap: 10px;
+  grid-gap: 5px;
   width: 100%;
-  margin-left: 90px;
+  margin: 10px;
 }
 .alphabets button {
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
   font-family: "Press Start 2P", "sans-serif";
-  width: 70%;
+  width: 60%;
   padding: 8px;
   background-color: #fcde67;
   color: black;
   border: solid 3px #f0a04b;
   border-radius: 10px;
-  margin-bottom: 10px;
 }
 .alphabets button:hover {
   cursor: pointer;

@@ -5,22 +5,23 @@
   background-position: center;
   background-origin: border-box;
   width: 100%;
-  height: 500px;
+  height: 700px;
   background-color: #fcde67;
+  position: fixed;
 }
 .overlay__button {
-  width: 35%;
-  padding: 8px;
+  width: 25%;
+  padding: 7px;
   font-family: "Press Start 2P", "sans-serif";
   border-radius: 10px;
   box-shadow: 5px 5px 5px 0;
   background-color: #fcde67;
-  margin-top: 250px;
-  margin-left: 130px;
+  margin-top: 340px;
+  margin-left: 110px;
   margin-right: 120px;
   color: black;
   border: solid 3px black;
-  font-size: 12px;
+  font-size: 10px;
   text-decoration: none;
 }
 .overlay__button:hover {
@@ -34,7 +35,7 @@
 .heading {
   font-family: "Press Start 2P", "sans-serif";
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   font-size: 20px;
   color: white;
 }
@@ -50,24 +51,19 @@
   margin-top: 10px;
 }
 .container__lives {
-  margin-top: 10px;
+  margin-top: 6px;
   margin-left: 70px;
 }
 .container__lives img {
-  width: 8%;
+  width: 12%;
 }
 .container .display__letters {
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   font-family: "Press Start 2P", "sans-serif";
   color: white;
   margin: 20px;
   display: flex;
-}
-.container .gaming-buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .container .gaming-buttons__new-game, .container .gaming-buttons__give-up {
   width: 160px;
@@ -79,7 +75,7 @@
   color: black;
   border: solid 3px black;
   font-size: 12px;
-  margin: 20px;
+  margin: 5px;
 }
 .container .gaming-buttons__new-game:hover {
   cursor: pointer;
@@ -99,7 +95,7 @@
 .alphabets {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-gap: 8px;
+  grid-gap: 5px;
   width: 100%;
   margin: 10px;
 }
@@ -133,20 +129,20 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-color: peru;
+  margin-bottom: 30px;
 }
 
 @media screen and (min-width: 768px) {
   .overlay {
-    height: 700px;
-    margin-left: 20px;
-    margin-right: 20px;
+    height: 800px;
+    margin: 0;
   }
   .overlay__button {
     width: 22%;
     padding: 14px;
-    margin-top: 360px;
-    margin-left: 320px;
-    margin-right: 20px;
+    margin-top: 400px;
+    margin-left: 360px;
     font-size: 20px;
     text-decoration: none;
   }
@@ -167,18 +163,17 @@ body {
   .container__lives {
     grid-area: lives;
     margin: 10px;
+    margin-left: 30px;
     border-radius: 10px;
-  }
-  .container__lives img {
-    width: 10%;
   }
   .container .display__letters {
     grid-area: text;
-    font-size: 30px;
+    font-size: 40px;
   }
   .container .gaming-buttons {
     display: flex;
     flex-direction: row;
+    margin-right: 50px;
   }
   .container .gaming-buttons__new-game, .container .gaming-buttons__give-up {
     width: 180px;
@@ -208,18 +203,22 @@ body {
   .alphabets {
     display: grid;
     grid-template-columns: repeat(13, 1fr);
-    grid-gap: 15px;
     margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 43px;
+    margin-right: 43px;
+    width: 90%;
   }
   .alphabets button {
-    font-size: 16px;
+    font-size: 14px;
     font-family: "Press Start 2P", "sans-serif";
-    width: auto;
-    padding: 10px;
+    width: 80%;
+    padding: 6px;
     background-color: #fcde67;
     color: black;
     border: solid 5px #f0a04b;
     border-radius: 10px;
+    text-align: center;
   }
   .alphabets button:hover {
     cursor: pointer;
