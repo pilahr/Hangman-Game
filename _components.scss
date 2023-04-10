@@ -1,34 +1,140 @@
 @use "./variables" as *;
 
 .overlay {
-  background: url(./image/background1.png) no-repeat fixed center;
+  background: url(./image/background1.png) no-repeat;
   background-size: contain;
+  background-position: center;
   background-origin: border-box;
-  width: auto;
-  height: 800px;
+  width: 100%;
+  height: 500px;
   background-color: $secondary-color;
-  display: none;
 
   &__button {
-    width: auto;
-    padding: 14px;
+    width: 35%;
+    padding: 8px;
     font-family: $secondary-font;
     border-radius: 10px;
     box-shadow: 5px 5px 5px 0;
     background-color: $secondary-color;
-    margin-top: 400px;
-    margin-left: 380px;
+    margin-top: 250px;
+    margin-left: 130px;
+    margin-right: 120px;
     color: black;
     border: solid 3px black;
-    font-size: 20px;
+    font-size: 12px;
+    text-decoration: none;
   }
 
   &__button:hover {
-    color: $primary-color;
+    color: white;
     cursor: pointer;
   }
 
   &__button:active {
+    transform: translateY(4px);
+  }
+}
+
+.heading {
+  font-family: $secondary-font;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  color: white;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__hangman {
+    width: 50%;
+    margin-top: 10px;
+  }
+
+  &__lives {
+    margin-top: 10px;
+    margin-left: 70px;
+
+    img {
+      width: 8%;
+    }
+  }
+
+  .display {
+    &__letters {
+      text-align: center;
+      font-size: 18px;
+      font-family: $secondary-font;
+      color: white;
+      margin: 20px;
+      display: flex;
+    }
+  }
+  .gaming-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__new-game,
+    &__give-up {
+      width: 160px;
+      padding: 14px;
+      font-family: $secondary-font;
+      border-radius: 10px;
+      box-shadow: 5px 5px 5px 0;
+      background-color: $game-button-color;
+      color: black;
+      border: solid 3px black;
+      font-size: 12px;
+      margin: 20px;
+    }
+    &__new-game:hover {
+      cursor: pointer;
+      color: white;
+    }
+
+    &__give-up:hover {
+      cursor: pointer;
+      color: white;
+    }
+
+    &__new-game:active {
+      transform: translateY(4px);
+    }
+
+    &__give-up:active {
+      transform: translateY(4px);
+    }
+  }
+}
+
+.alphabets {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 8px;
+  width: 100%;
+  margin: 10px;
+
+  button {
+    text-align: center;
+    font-size: 12px;
+    font-family: $secondary-font;
+    width: 60%;
+    padding: 8px;
+    background-color: $secondary-color;
+    color: black;
+    border: solid 3px $primary-color;
+    border-radius: 10px;
+  }
+
+  button:hover {
+    cursor: pointer;
+    background-color: $game-button-color;
+  }
+
+  button:active {
     transform: translateY(4px);
   }
 }

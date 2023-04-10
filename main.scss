@@ -10,6 +10,122 @@
 }
 
 body {
-  background-image: url(./image/background2.jpg);
+  background-image: url(./image/background2.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .overlay {
+    height: 700px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    &__button {
+      width: 22%;
+      padding: 14px;
+      margin-top: 360px;
+      margin-left: 320px;
+      margin-right: 20px;
+      font-size: 20px;
+      text-decoration: none;
+    }
+  }
+
+  .heading {
+    font-size: 30px;
+  }
+  .container {
+    width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-areas:
+      "hangman text"
+      "lives text";
+
+    &__hangman {
+      grid-area: hangman;
+      width: 50%;
+      margin-left: 30px;
+    }
+
+    &__lives {
+      grid-area: lives;
+      margin: 10px;
+      border-radius: 10px;
+
+      img {
+        width: 10%;
+      }
+    }
+
+    .display {
+      &__letters {
+        grid-area: text;
+        font-size: 30px;
+      }
+    }
+    .gaming-buttons {
+      display: flex;
+      flex-direction: row;
+
+      &__new-game,
+      &__give-up {
+        width: 180px;
+        padding: 12px;
+        font-family: $secondary-font;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px 0;
+        background-color: $game-button-color;
+        color: black;
+        border: solid 3px black;
+        font-size: 14px;
+      }
+      &__new-game:hover {
+        cursor: pointer;
+        color: white;
+      }
+
+      &__give-up:hover {
+        cursor: pointer;
+        color: white;
+      }
+
+      &__new-game:active {
+        transform: translateY(4px);
+      }
+
+      &__give-up:active {
+        transform: translateY(4px);
+      }
+    }
+  }
+
+  .alphabets {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    grid-gap: 15px;
+    margin-top: 30px;
+
+    button {
+      font-size: 16px;
+      font-family: $secondary-font;
+      width: auto;
+      padding: 10px;
+      background-color: $secondary-color;
+      color: black;
+      border: solid 5px $primary-color;
+      border-radius: 10px;
+    }
+
+    button:hover {
+      cursor: pointer;
+      background-color: $game-button-color;
+    }
+
+    button:active {
+      transform: translateY(4px);
+    }
+  }
 }

@@ -1,25 +1,124 @@
-.start {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
+.overlay {
+  background: url(./image/background1.png) no-repeat fixed center;
+  background-size: contain;
+  background-origin: border-box;
+  width: 100%;
+  height: 700px;
+  background-color: #fcde67;
+  margin-left: 20px;
+  margin-right: 20px;
 }
-.start__heading {
-  font-family: "SpecialElite", "sans-serif";
-  color: white;
-}
-.start__button {
-  width: 180px;
+.overlay__button {
+  width: 35%;
   padding: 14px;
   font-family: "Press Start 2P", "sans-serif";
   border-radius: 10px;
   box-shadow: 5px 5px 5px 0;
   background-color: #fcde67;
-  margin: 100px;
+  margin-top: 400px;
+  margin-left: 180px;
+  margin-right: 120px;
+  color: black;
+  border: solid 3px black;
+  font-size: 14px;
+  text-decoration: none;
 }
-.start__button:hover {
-  opacity: 5;
+.overlay__button:hover {
+  color: #f0a04b;
   cursor: pointer;
 }
-.start__ button:active {
+.overlay__button:active {
+  transform: translateY(4px);
+}
+
+.heading {
+  font-family: "Press Start 2P", "sans-serif";
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 130px;
+}
+.container__hangman {
+  width: 60%;
+  margin-top: 50px;
+}
+.container__lives {
+  margin: 10px;
+  display: flex;
+}
+.container__lives img {
+  width: 10%;
+  margin: 5px;
+}
+.container .display__letters {
+  text-align: center;
+  font-size: 18px;
+  font-family: "Press Start 2P", "sans-serif";
+  color: black;
+  margin: 20px;
+}
+.container .gaming-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .gaming-buttons__new-game, .container .gaming-buttons__give-up {
+  width: 200px;
+  padding: 14px;
+  font-family: "Press Start 2P", "sans-serif";
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0;
+  background-color: #5bccf6;
+  color: black;
+  border: solid 3px black;
+  font-size: 14px;
+  margin: 20px;
+}
+.container .gaming-buttons__new-game:hover {
+  cursor: pointer;
+  color: white;
+}
+.container .gaming-buttons__give-up:hover {
+  cursor: pointer;
+  color: white;
+}
+.container .gaming-buttons__new-game:active {
+  transform: translateY(4px);
+}
+.container .gaming-buttons__give-up:active {
+  transform: translateY(4px);
+}
+
+.alphabets {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+  width: 100%;
+  margin-left: 90px;
+}
+.alphabets button {
+  text-align: center;
+  font-size: 14px;
+  font-family: "Press Start 2P", "sans-serif";
+  width: 70%;
+  padding: 8px;
+  background-color: #fcde67;
+  color: black;
+  border: solid 3px #f0a04b;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.alphabets button:hover {
+  cursor: pointer;
+  background-color: #5bccf6;
+}
+.alphabets button:active {
   transform: translateY(4px);
 }
