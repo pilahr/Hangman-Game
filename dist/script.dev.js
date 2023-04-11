@@ -1,8 +1,11 @@
 "use strict";
 
-// import words from "./randomWords.js";
-var words = ["happy", "snake", "communication", "letter", "monitor", "application", "network", "water", "small", "house", "food", "remove"];
-var alphabets = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; // ----- GET ELEMENTS ----- //
+var _randomWords = _interopRequireDefault(require("./randomWords.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var alphabetsString = "abcdefghijklmnopqrstuvwxyz";
+var alphabets = alphabetsString.split(""); // ----- GET ELEMENTS ----- //
 
 var startButton = document.querySelector(".overlay__button");
 var displayScreen = document.querySelector(".display__letters");
@@ -25,7 +28,7 @@ insertLetters(); // RANDOM WORD
 var randomWord = "";
 
 var getRandomWord = function getRandomWord() {
-  randomWord = words[Math.floor(Math.random() * words.length)];
+  randomWord = _randomWords["default"][Math.floor(Math.random() * _randomWords["default"].length)];
   return randomWord;
 }; // ADD WORD TO DISPLAY
 
@@ -48,6 +51,9 @@ var handleStartButton = function handleStartButton(event) {
   getRandomWord();
   displayWordArea(randomWord);
   showPlayerLife();
+  confetti({
+    particleCount: 200
+  });
   return;
 }; // NEW GAME BUTTON
 
@@ -69,7 +75,8 @@ var handleNewGameButtonClick = function handleNewGameButtonClick(event) {
 
 var handleGiveUpButtonClick = function handleGiveUpButtonClick(event) {
   displayScreen.innerHTML = randomWord;
-}; // CHECK EXISTING ALPHABET -- not working yet
+  alert("Here's the answer, let's play another game 😉");
+}; // CHECK EXISTING ALPHABET --
 
 
 var checkExistingAlphabet = function checkExistingAlphabet(letter) {
@@ -111,25 +118,28 @@ var loseOneLife = function loseOneLife() {
     totalLives.pop();
     showPlayerLife();
     hasLostLife = true;
-    gameOver();
   }
-}; // GAME OVER
-
-
-var gameOver = function gameOver() {
-  if (totalLives.length === 0) {
-    alert("GAME OVER!  ❌ NO CANDY 🍭🍭🍭 FOR YOU");
-  } else {
-    return;
-  }
-}; // WINNER
-
-
-var winner = function winner() {
-  if (totalLives.length >= 5) {
-    alert("YOU ARE THE WINNER!");
-  }
-}; // ----- EVENT LISTENER ----- //
+}; //GAME STATUS
+// const gameStatus = () => {
+//   if (totalLives.length === 0) {
+//     alert("GAME OVER!  ❌ NO CANDY 🍭🍭🍭 FOR YOU");
+//   } else if (totalLives.length <= 5 && winCount == letter.length) {
+//     alert("🍭🍭🍭 YOU ARE THE WINNER 🍭🍭🍭");
+//     confetti({
+//       particleCount: 700,
+//       angle: 60,
+//       spread: 55,
+//       origin: { x: 0 },
+//     });
+//     confetti({
+//       particleCount: 700,
+//       angle: 120,
+//       spread: 55,
+//       origin: { x: 1 },
+//     });
+//   }
+// };
+// ----- EVENT LISTENER ----- //
 
 
 startButton.addEventListener("click", handleStartButton);

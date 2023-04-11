@@ -1,48 +1,7 @@
-// import words from "./randomWords.js";
+import words from "./randomWords.js";
 
-const words = [
-  "happy",
-  "snake",
-  "communication",
-  "letter",
-  "monitor",
-  "application",
-  "network",
-  "water",
-  "small",
-  "house",
-  "food",
-  "remove",
-];
-
-const alphabets = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-];
+const alphabetsString = "abcdefghijklmnopqrstuvwxyz";
+const alphabets = alphabetsString.split("");
 
 // ----- GET ELEMENTS ----- //
 const startButton = document.querySelector(".overlay__button");
@@ -54,6 +13,7 @@ const giveUpButton = document.querySelector(".gaming-buttons__give-up");
 const showLives = document.querySelector(".container__lives");
 
 //  ----- FUNCTION ----- //
+
 // INSERT ALPHABETS BUTTONS
 const insertLetters = () => {
   const alphabetsContainer = document.querySelector(".alphabets");
@@ -89,6 +49,8 @@ const handleStartButton = (event) => {
   getRandomWord();
   displayWordArea(randomWord);
   showPlayerLife();
+  confetti({ particleCount: 200 });
+
   return;
 };
 
@@ -113,12 +75,13 @@ const handleNewGameButtonClick = (event) => {
 // GIVE UP BUTTON
 const handleGiveUpButtonClick = (event) => {
   displayScreen.innerHTML = randomWord;
+  alert("Here's the answer, let's play another game 😉");
 };
 
-// CHECK EXISTING ALPHABET -- not working yet
+// CHECK EXISTING ALPHABET --
+
 const checkExistingAlphabet = (letter) => {
   const hiddenLetters = document.querySelectorAll(".display__letters p");
-
   hiddenLetters.forEach((hiddenLetter) => {
     const hidden = hiddenLetter.innerHTML == "_";
     const letterElement = hiddenLetter.dataset.letter;
@@ -130,7 +93,6 @@ const checkExistingAlphabet = (letter) => {
 };
 
 // ALPHABETS BUTTON
-
 alphabetsButtons.forEach((button) => {
   button.addEventListener("click", () => {
     button.style.backgroundColor = "green";
@@ -158,25 +120,30 @@ const loseOneLife = () => {
     totalLives.pop();
     showPlayerLife();
     hasLostLife = true;
-    gameOver();
   }
 };
 
-// GAME OVER
-const gameOver = () => {
-  if (totalLives.length === 0) {
-    alert("GAME OVER!  ❌ NO CANDY 🍭🍭🍭 FOR YOU");
-  } else {
-    return;
-  }
-};
+//GAME STATUS
+// const gameStatus = () => {
+//   if (totalLives.length === 0) {
+//     alert("GAME OVER!  ❌ NO CANDY 🍭🍭🍭 FOR YOU");
+//   } else if (totalLives.length <= 5 && winCount == letter.length) {
+//     alert("🍭🍭🍭 YOU ARE THE WINNER 🍭🍭🍭");
+//     confetti({
+//       particleCount: 700,
+//       angle: 60,
+//       spread: 55,
+//       origin: { x: 0 },
+//     });
+//     confetti({
+//       particleCount: 700,
+//       angle: 120,
+//       spread: 55,
+//       origin: { x: 1 },
+//     });
+//   }
+// };
 
-// WINNER
-const winner = () => {
-  if (totalLives.length >= 5) {
-    alert("YOU ARE THE WINNER!");
-  }
-};
 // ----- EVENT LISTENER ----- //
 startButton.addEventListener("click", handleStartButton);
 
