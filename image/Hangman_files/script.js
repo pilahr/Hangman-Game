@@ -1,4 +1,4 @@
-// import words from "./randomWords.js";
+// import words from "./randomWords";
 
 const words = [
   "happy",
@@ -51,6 +51,8 @@ const overlayPage = document.querySelector(".overlay");
 const newGameButton = document.querySelector(".gaming-buttons__new-game");
 const giveUpButton = document.querySelector(".gaming-buttons__give-up");
 
+const alphabetsButtons = document.querySelectorAll(".alphabets button");
+
 const showLives = document.querySelector(".container__lives");
 
 //  ----- FUNCTION ----- //
@@ -93,20 +95,10 @@ const handleStartButton = (event) => {
 };
 
 // NEW GAME BUTTON
-
-const alphabetsButtons = document.querySelectorAll(".alphabets button");
-
 const handleNewGameButtonClick = (event) => {
   displayScreen.innerHTML = "";
   randomWord = getRandomWord();
   displayWordArea(randomWord);
-
-  alphabetsButtons.forEach((button) => {
-    button.style.backgroundColor = "#fcde67";
-  });
-
-  showLives.innerHTML = "";
-  totalLives = [1, 2, 3, 4, 5];
   showPlayerLife();
 };
 
@@ -129,16 +121,12 @@ const checkExistingAlphabet = (letter) => {
   });
 };
 
-// ALPHABETS BUTTON
-
-alphabetsButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    button.style.backgroundColor = "green";
-    checkExistingAlphabet(button.innerHTML);
-    loseOneLife();
-    hasLostLife = true;
-  });
-});
+const handleAlphabetButtonClick = (event) => {
+  document.body.style.backgroundColor = "red";
+  checkExistingAlphabet(button.innerHTML);
+  loseOneLife();
+  hasLostLife = true;
+};
 
 // LIVES
 let hasLostLife = true;
@@ -165,21 +153,20 @@ const loseOneLife = () => {
 // GAME OVER
 const gameOver = () => {
   if (totalLives.length === 0) {
-    alert("GAME OVER!  ❌ NO CANDY 🍭🍭🍭 FOR YOU");
+    alert("GAME OVER!");
   } else {
     return;
   }
 };
 
-// WINNER
-const winner = () => {
-  if (totalLives.length >= 5) {
-    alert("YOU ARE THE WINNER!");
-  }
-};
 // ----- EVENT LISTENER ----- //
 startButton.addEventListener("click", handleStartButton);
 
 newGameButton.addEventListener("click", handleNewGameButtonClick);
 
 giveUpButton.addEventListener("click", handleGiveUpButtonClick);
+
+// ALPHABETS BUTTON -- not working yet
+alphabetsButtons.forEach((button) => {
+  button.addEventListener("click", handleAlphabetButtonClick);
+});
