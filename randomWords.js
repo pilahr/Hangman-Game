@@ -1,4 +1,4 @@
-export const words = [
+const words = [
   "happy",
   "snake",
   "communication",

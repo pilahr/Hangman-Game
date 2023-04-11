@@ -1,6 +1,6 @@
 "use strict";
 
-// import words from "./randomWords";
+// import words from "./randomWords.js";
 var words = ["happy", "snake", "communication", "letter", "monitor", "application", "network", "water", "small", "house", "food", "remove"];
 var alphabets = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; // ----- GET ELEMENTS ----- //
 
@@ -52,10 +52,17 @@ var handleStartButton = function handleStartButton(event) {
 }; // NEW GAME BUTTON
 
 
+var alphabetsButtons = document.querySelectorAll(".alphabets button");
+
 var handleNewGameButtonClick = function handleNewGameButtonClick(event) {
   displayScreen.innerHTML = "";
   randomWord = getRandomWord();
   displayWordArea(randomWord);
+  alphabetsButtons.forEach(function (button) {
+    button.style.backgroundColor = "#fcde67";
+  });
+  showLives.innerHTML = "";
+  totalLives = [1, 2, 3, 4, 5];
   showPlayerLife();
 }; // GIVE UP BUTTON
 
@@ -79,7 +86,6 @@ var checkExistingAlphabet = function checkExistingAlphabet(letter) {
 }; // ALPHABETS BUTTON
 
 
-var alphabetsButtons = document.querySelectorAll(".alphabets button");
 alphabetsButtons.forEach(function (button) {
   button.addEventListener("click", function () {
     button.style.backgroundColor = "green";
@@ -112,9 +118,16 @@ var loseOneLife = function loseOneLife() {
 
 var gameOver = function gameOver() {
   if (totalLives.length === 0) {
-    alert("GAME OVER! NO CANDY FOR YOU");
+    alert("GAME OVER!  ❌ NO CANDY 🍭🍭🍭 FOR YOU");
   } else {
     return;
+  }
+}; // WINNER
+
+
+var winner = function winner() {
+  if (totalLives.length >= 5) {
+    alert("YOU ARE THE WINNER!");
   }
 }; // ----- EVENT LISTENER ----- //
 

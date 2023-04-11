@@ -1,4 +1,4 @@
-// import words from "./randomWords";
+// import words from "./randomWords.js";
 
 const words = [
   "happy",
@@ -93,10 +93,20 @@ const handleStartButton = (event) => {
 };
 
 // NEW GAME BUTTON
+
+const alphabetsButtons = document.querySelectorAll(".alphabets button");
+
 const handleNewGameButtonClick = (event) => {
   displayScreen.innerHTML = "";
   randomWord = getRandomWord();
   displayWordArea(randomWord);
+
+  alphabetsButtons.forEach((button) => {
+    button.style.backgroundColor = "#fcde67";
+  });
+
+  showLives.innerHTML = "";
+  totalLives = [1, 2, 3, 4, 5];
   showPlayerLife();
 };
 
@@ -120,7 +130,6 @@ const checkExistingAlphabet = (letter) => {
 };
 
 // ALPHABETS BUTTON
-const alphabetsButtons = document.querySelectorAll(".alphabets button");
 
 alphabetsButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -156,12 +165,18 @@ const loseOneLife = () => {
 // GAME OVER
 const gameOver = () => {
   if (totalLives.length === 0) {
-    alert("GAME OVER! NO CANDY FOR YOU");
+    alert("GAME OVER!  ❌ NO CANDY 🍭🍭🍭 FOR YOU");
   } else {
     return;
   }
 };
 
+// WINNER
+const winner = () => {
+  if (totalLives.length >= 5) {
+    alert("YOU ARE THE WINNER!");
+  }
+};
 // ----- EVENT LISTENER ----- //
 startButton.addEventListener("click", handleStartButton);
 
