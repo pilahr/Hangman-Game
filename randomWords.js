@@ -11,6 +11,14 @@ const words = [
   "house",
   "food",
   "remove",
+  "ant",
+  "bird",
+  "mange",
+  "tomato",
+  "flower",
+  "notebook",
+  "lollipop",
+  "rose",
 ];
 
 export default words;
