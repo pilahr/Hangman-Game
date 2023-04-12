@@ -23,7 +23,8 @@ var insertLetters = function insertLetters() {
   });
 };
 
-insertLetters(); // RANDOM WORD
+insertLetters();
+var alphabetsButtons = document.querySelectorAll(".alphabets button"); // RANDOM WORD
 
 var randomWord = "";
 
@@ -52,18 +53,30 @@ var handleStartButton = function handleStartButton(event) {
   displayWordArea(randomWord);
   showPlayerLife();
   confetti({
-    particleCount: 200
+    particleCount: 700,
+    angle: 60,
+    spread: 55,
+    origin: {
+      x: 0
+    }
+  });
+  confetti({
+    particleCount: 700,
+    angle: 120,
+    spread: 55,
+    origin: {
+      x: 1
+    }
   });
   return;
 }; // NEW GAME BUTTON
 
 
-var alphabetsButtons = document.querySelectorAll(".alphabets button");
-
 var handleNewGameButtonClick = function handleNewGameButtonClick(event) {
   displayScreen.innerHTML = "";
   randomWord = getRandomWord();
   displayWordArea(randomWord);
+  blocker(false);
   alphabetsButtons.forEach(function (button) {
     button.style.backgroundColor = "#fcde67";
   });
@@ -76,8 +89,11 @@ var handleNewGameButtonClick = function handleNewGameButtonClick(event) {
 var handleGiveUpButtonClick = function handleGiveUpButtonClick(event) {
   displayScreen.innerHTML = randomWord;
   alert("Here's the answer, let's play another game 😉");
+  blocker(true);
 }; // CHECK EXISTING ALPHABET --
 
+
+var winCount = 0;
 
 var checkExistingAlphabet = function checkExistingAlphabet(letter) {
   var hiddenLetters = document.querySelectorAll(".display__letters p");
@@ -88,6 +104,7 @@ var checkExistingAlphabet = function checkExistingAlphabet(letter) {
     if (hidden && letterElement == letter) {
       hiddenLetter.innerHTML = letter;
       hasLostLife = false;
+      winCount += 1;
     }
   });
 }; // ALPHABETS BUTTON
@@ -118,12 +135,31 @@ var loseOneLife = function loseOneLife() {
     totalLives.pop();
     showPlayerLife();
     hasLostLife = true;
+    gameOver();
+  }
+}; // BLOCKER
+
+
+var blocker = function blocker(_boolean) {
+  alphabetsButtons.forEach(function (button) {
+    button.disabled = _boolean;
+  });
+}; // GAME OVER
+
+
+var gameOver = function gameOver() {
+  if (totalLives.length === 0) {
+    alert("GAME OVER!  ❌ NO CANDY 🍭🍭🍭 FOR YOU");
+    blocker(true);
+  } else {
+    return;
   }
 }; //GAME STATUS
 // const gameStatus = () => {
 //   if (totalLives.length === 0) {
+//     blocker(true);
 //     alert("GAME OVER!  ❌ NO CANDY 🍭🍭🍭 FOR YOU");
-//   } else if (totalLives.length <= 5 && winCount == letter.length) {
+//   } else if (winCount === randomWord.length) {
 //     alert("🍭🍭🍭 YOU ARE THE WINNER 🍭🍭🍭");
 //     confetti({
 //       particleCount: 700,
@@ -137,6 +173,8 @@ var loseOneLife = function loseOneLife() {
 //       spread: 55,
 //       origin: { x: 1 },
 //     });
+//   } else {
+//     return;
 //   }
 // };
 // ----- EVENT LISTENER ----- //

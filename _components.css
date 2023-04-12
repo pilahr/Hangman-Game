@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .overlay {
   background: url(./image/background1.png) no-repeat;
   background-size: contain;
@@ -16,13 +17,13 @@
   border-radius: 10px;
   box-shadow: 5px 5px 5px 0;
   background-color: #fcde67;
-  margin-top: 440px;
-  margin-left: 110px;
-  margin-right: 120px;
   color: black;
   border: solid 3px black;
   font-size: 10px;
   text-decoration: none;
+  position: fixed;
+  top: 340px;
+  left: 120px;
 }
 .overlay__button:hover {
   color: white;
@@ -30,6 +31,9 @@
 }
 .overlay__button:active {
   transform: translateY(4px);
+}
+.overlay__button:after {
+  content: " »" "»";
 }
 
 .heading {

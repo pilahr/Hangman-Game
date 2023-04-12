@@ -24,6 +24,8 @@ const insertLetters = () => {
 };
 insertLetters();
 
+const alphabetsButtons = document.querySelectorAll(".alphabets button");
+
 // RANDOM WORD
 let randomWord = "";
 const getRandomWord = () => {
@@ -35,6 +37,7 @@ const getRandomWord = () => {
 const addHtmlWord = (letter) => {
   return `<p data-letter="${letter}">_</p>`;
 };
+
 const displayWordArea = (word) => {
   for (let i = 0; i < word.length; i++) {
     const letter = word[i];
@@ -49,19 +52,27 @@ const handleStartButton = (event) => {
   getRandomWord();
   displayWordArea(randomWord);
   showPlayerLife();
-  confetti({ particleCount: 200 });
-
+  confetti({
+    particleCount: 700,
+    angle: 60,
+    spread: 55,
+    origin: { x: 0 },
+  });
+  confetti({
+    particleCount: 700,
+    angle: 120,
+    spread: 55,
+    origin: { x: 1 },
+  });
   return;
 };
 
 // NEW GAME BUTTON
-
-const alphabetsButtons = document.querySelectorAll(".alphabets button");
-
 const handleNewGameButtonClick = (event) => {
   displayScreen.innerHTML = "";
   randomWord = getRandomWord();
   displayWordArea(randomWord);
+  blocker(false);
 
   alphabetsButtons.forEach((button) => {
     button.style.backgroundColor = "#fcde67";
@@ -76,9 +87,11 @@ const handleNewGameButtonClick = (event) => {
 const handleGiveUpButtonClick = (event) => {
   displayScreen.innerHTML = randomWord;
   alert("Here's the answer, let's play another game 😉");
+  blocker(true);
 };
 
 // CHECK EXISTING ALPHABET --
+let winCount = 0;
 
 const checkExistingAlphabet = (letter) => {
   const hiddenLetters = document.querySelectorAll(".display__letters p");
@@ -88,6 +101,7 @@ const checkExistingAlphabet = (letter) => {
     if (hidden && letterElement == letter) {
       hiddenLetter.innerHTML = letter;
       hasLostLife = false;
+      winCount += 1;
     }
   });
 };
@@ -120,15 +134,35 @@ const loseOneLife = () => {
     totalLives.pop();
     showPlayerLife();
     hasLostLife = true;
+    gameOver();
+  }
+};
+
+// BLOCKER
+const blocker = (boolean) => {
+  alphabetsButtons.forEach((button) => {
+    button.disabled = boolean;
+  });
+};
+
+// GAME OVER
+const gameOver = () => {
+  if (totalLives.length === 0) {
+    alert("GAME OVER!  ❌ NO CANDY 🍭🍭🍭 FOR YOU");
+    blocker(true);
+  } else {
+    return;
   }
 };
 
 //GAME STATUS
 // const gameStatus = () => {
 //   if (totalLives.length === 0) {
+//     blocker(true);
 //     alert("GAME OVER!  ❌ NO CANDY 🍭🍭🍭 FOR YOU");
-//   } else if (totalLives.length <= 5 && winCount == letter.length) {
+//   } else if (winCount === randomWord.length) {
 //     alert("🍭🍭🍭 YOU ARE THE WINNER 🍭🍭🍭");
+
 //     confetti({
 //       particleCount: 700,
 //       angle: 60,
@@ -141,6 +175,8 @@ const loseOneLife = () => {
 //       spread: 55,
 //       origin: { x: 1 },
 //     });
+//   } else {
+//     return;
 //   }
 // };
 

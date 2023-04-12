@@ -18,13 +18,13 @@
     border-radius: 10px;
     box-shadow: 5px 5px 5px 0;
     background-color: $secondary-color;
-    margin-top: 440px;
-    margin-left: 110px;
-    margin-right: 120px;
     color: black;
     border: solid 3px black;
     font-size: 10px;
     text-decoration: none;
+    position: fixed;
+    top:340px;
+    left: 120px;
   }
 
   &__button:hover {
@@ -34,6 +34,10 @@
 
   &__button:active {
     transform: translateY(4px);
+  }
+
+  &__button:after {
+    content: ' \00bb' '\00bb';
   }
 }
 
