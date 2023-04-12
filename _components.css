@@ -4,7 +4,8 @@
   background-position: center;
   background-origin: border-box;
   width: 100%;
-  height: 700px;
+  height: 100%;
+  z-index: 1;
   background-color: #fcde67;
   position: fixed;
 }
@@ -13,15 +14,43 @@
   padding: 7px;
   font-family: "Press Start 2P", "sans-serif";
   border-radius: 10px;
-  box-shadow: 5px 5px 5px 0;
-  background-color: #fcde67;
-  margin-top: 340px;
-  margin-left: 110px;
-  margin-right: 120px;
+  color: white;
+  background: #fcde67;
   color: black;
   border: solid 3px black;
-  font-size: 10px;
+  font-size: 14px;
   text-decoration: none;
+  position: absolute;
+  top: 340px;
+  left: 120px;
+  box-shadow: 0 9px black;
+}
+.overlay__button:before {
+  content: "";
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 .overlay__button:hover {
   color: white;
@@ -29,6 +58,18 @@
 }
 .overlay__button:active {
   transform: translateY(4px);
+  box-shadow: 0 5px #666;
+}
+.overlay__button:after {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fcde67;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  content: "";
 }
 
 .heading {
@@ -51,10 +92,7 @@
 }
 .container__lives {
   margin-top: 6px;
-  margin-left: 70px;
-}
-.container__lives img {
-  width: 12%;
+  display: flex;
 }
 .container .display__letters {
   text-align: center;
