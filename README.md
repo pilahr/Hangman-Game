@@ -13,8 +13,9 @@ In this project I was tasked to build a game using HTML, SCSS and JavaScript.
 I began with created an Array of the words to use in the game in randomWords.js then imported the variable into the main JavaScript file (script.js). Then I defined a variable that contain a string of the alphabets from a-z, separated them into an array with split method for them to be ready to use as a HTML alphabet buttons.
 
 FUNCTIONS EXPLAINED
-insertLetters:
-This function is for adding the buttons of alphabets a-z to the HTML by looping through the letters in the alphabets array then added them to HTML
+
+    insertLetters:
+    This function is for adding the buttons of alphabets a-z to the HTML by looping through the letters in the alphabets array then added them to HTML
 
     getRandomWord:
     This function is to return a random words from words array to be ready to use in the game.
