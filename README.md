@@ -1,5 +1,7 @@
 # Hangman-Game Project
 
+![950338D6-0497-4292-B2B7-1A7AA18F08D8](https://user-images.githubusercontent.com/125895065/231592939-f1add8b7-ecac-428c-83a7-7ba2bd0d4b67.png)
+
 In this project I was tasked to build a game using HTML, SCSS and JavaScript.
 
 1. HTML: I began by creating the layout of this game, named classes with BEM implementation for accessing in SCSS and JavaScript. It has overlay page with the start game button and the main page for gaming area.
