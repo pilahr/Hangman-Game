@@ -1,15 +1,18 @@
-.overlay {
+.overlay-container {
+  width: 100%;
+  height: auto;
+}
+.overlay-container .overlay {
   background: url(./image/background1.png) no-repeat;
   background-size: contain;
   background-position: center;
   background-origin: border-box;
   width: 100%;
   height: 100%;
-  z-index: 1;
   background-color: #fcde67;
   position: fixed;
 }
-.overlay__button {
+.overlay-container .overlay__button {
   width: 25%;
   padding: 7px;
   font-family: "Press Start 2P", "sans-serif";
@@ -21,11 +24,12 @@
   font-size: 14px;
   text-decoration: none;
   position: absolute;
-  top: 340px;
+  top: 330px;
   left: 120px;
+  right: 120px;
   box-shadow: 0 9px black;
 }
-.overlay__button:before {
+.overlay-container .overlay__button:before {
   content: "";
   background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
   position: absolute;
@@ -52,15 +56,15 @@
     background-position: 0 0;
   }
 }
-.overlay__button:hover {
+.overlay-container .overlay__button:hover {
   color: white;
   cursor: pointer;
 }
-.overlay__button:active {
+.overlay-container .overlay__button:active {
   transform: translateY(4px);
   box-shadow: 0 5px #666;
 }
-.overlay__button:after {
+.overlay-container .overlay__button:after {
   z-index: -1;
   position: absolute;
   width: 100%;

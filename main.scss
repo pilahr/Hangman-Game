@@ -19,19 +19,22 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .overlay {
-    margin: 0;
-
-    &__button {
-      width: 40%;
-      padding: 20px;
-      font-size: 30px;
-      text-decoration: none;
-      position: fixed;
-      top: 360px;
-      left: 300px;
+  .overlay-container {
+    .overlay {
+      margin: 0;
+  
+      &__button {
+        width: 40%;
+        padding: 30px;
+        font-size: 40px;
+        text-decoration: none;
+        position: fixed;
+        top: 380px;
+        left: 350px;
+      }
     }
   }
+  
 
   .heading {
     font-size: 30px;
