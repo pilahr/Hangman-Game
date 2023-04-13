@@ -4,9 +4,12 @@ var _randomWords = _interopRequireDefault(require("./randomWords.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+// ---- CREATE AN ARRAY OF THE ALPHABETS ---- //
 var alphabetsString = "abcdefghijklmnopqrstuvwxyz";
-var alphabets = alphabetsString.split("");
-var winCount = 0; //  ----- FUNCTION ----- //
+var alphabets = alphabetsString.split(""); // ---- GLOBAL VARIABLES ---- //
+
+var winCount = 0;
+var randomWord = ""; //  ----- FUNCTION ----- //
 // INSERT ALPHABETS BUTTONS
 
 var insertLetters = function insertLetters() {
@@ -19,8 +22,6 @@ var insertLetters = function insertLetters() {
 
 insertLetters();
 var alphabetsButtons = document.querySelectorAll(".alphabets button"); // RANDOM WORD
-
-var randomWord = "";
 
 var getRandomWord = function getRandomWord() {
   randomWord = _randomWords["default"][Math.floor(Math.random() * _randomWords["default"].length)];

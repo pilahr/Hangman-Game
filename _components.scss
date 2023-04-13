@@ -121,6 +121,7 @@
     &__letters {
       text-align: center;
       font-size: 20px;
+      letter-spacing: 5px;
       font-family: $secondary-font;
       color: white;
       margin: 20px;
@@ -176,7 +177,7 @@
     padding: 8px;
     background-color: $secondary-color;
     color: black;
-    border: solid 3px $primary-color;
+    border: solid 5px $primary-color;
     border-radius: 10px;
   }
 

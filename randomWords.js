@@ -13,12 +13,17 @@ const words = [
   "remove",
   "ant",
   "bird",
-  "mange",
+  "mango",
   "tomato",
   "flower",
   "notebook",
   "lollipop",
   "rose",
+  "apple",
+  "cat",
+  "dog",
+  "fish",
+  "golf"
 ];
 
 export default words;

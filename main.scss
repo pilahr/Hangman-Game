@@ -29,13 +29,11 @@ body {
       }
     }
   }
-  
 
   .heading {
     font-size: 30px;
   }
   .container {
-    width: 100%;
     margin: 0;
     display: grid;
     grid-template-areas:
@@ -44,7 +42,6 @@ body {
 
     &__hangman {
       grid-area: hangman;
-      width: 50%;
       margin-left: 30px;
     }
 
@@ -69,30 +66,7 @@ body {
       &__give-up {
         width: 180px;
         padding: 12px;
-        font-family: $secondary-font;
-        border-radius: 10px;
-        box-shadow: 5px 5px 5px 0;
-        background-color: $game-button-color;
-        color: black;
-        border: solid 3px black;
         font-size: 14px;
-      }
-      &__new-game:hover {
-        cursor: pointer;
-        color: white;
-      }
-
-      &__give-up:hover {
-        cursor: pointer;
-        color: white;
-      }
-
-      &__new-game:active {
-        transform: translateY(4px);
-      }
-
-      &__give-up:active {
-        transform: translateY(4px);
       }
     }
   }
@@ -111,20 +85,6 @@ body {
       font-family: $secondary-font;
       width: 80%;
       padding: 6px;
-      background-color: $secondary-color;
-      color: black;
-      border: solid 5px $primary-color;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    button:hover {
-      cursor: pointer;
-      background-color: $game-button-color;
-    }
-
-    button:active {
-      transform: translateY(4px);
     }
   }
 }

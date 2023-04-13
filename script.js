@@ -1,8 +1,13 @@
 import words from "./randomWords.js";
 
+// ---- CREATE AN ARRAY OF THE ALPHABETS ---- //
 const alphabetsString = "abcdefghijklmnopqrstuvwxyz";
 const alphabets = alphabetsString.split("");
+
+// ---- GLOBAL VARIABLES ---- //
 let winCount = 0;
+let randomWord = "";
+
 //  ----- FUNCTION ----- //
 
 // INSERT ALPHABETS BUTTONS
@@ -18,7 +23,6 @@ insertLetters();
 const alphabetsButtons = document.querySelectorAll(".alphabets button");
 
 // RANDOM WORD
-let randomWord = "";
 const getRandomWord = () => {
   randomWord = words[Math.floor(Math.random() * words.length)];
   return randomWord;

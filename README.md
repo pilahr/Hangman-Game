@@ -6,7 +6,7 @@ In this project I was tasked to build a game using HTML, SCSS and JavaScript.
 
 1. HTML: I began by creating the layout of this game, named classes with BEM implementation for accessing in SCSS and JavaScript. It has overlay page with the start game button and the main page for gaming area.
 
-2. SCSS: I applied a basic styling of the components, using grid where necessary. I started building the game from mobile dimension and then applied the media screen for a larger device. The SCSS files were separated to organised the structure of the game.
+2. SCSS: I applied a basic styling of the components, using flex box and grid where necessary. I started building the game from mobile dimension and then applied the media screen for a larger device. The SCSS files were separated to organised the structure of the game.
 
 3. JavaScript: The game's functionality was achieved by utilising some key fundamentals of JavaScript, such as variables, getting HTML element, conditional statements, functions, loops, event listeners and also implemented npm package to use with the confetti effect.
 
