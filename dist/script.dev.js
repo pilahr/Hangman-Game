@@ -161,7 +161,8 @@ var blocker = function blocker(_boolean) {
 };
 
 var gameStatus = function gameStatus(randomWord) {
-  if (randomWord.length == winCount) {
+  if (randomWord.length >= 3 && randomWord.length == winCount) {
+    blocker(true);
     alert("🍭🍭🍭 YOU ARE THE WINNER 🍭🍭🍭");
     confetti({
       particleCount: 700,
