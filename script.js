@@ -2,7 +2,7 @@ import words from "./randomWords.js";
 
 const alphabetsString = "abcdefghijklmnopqrstuvwxyz";
 const alphabets = alphabetsString.split("");
-
+let winCount = 0;
 //  ----- FUNCTION ----- //
 
 // INSERT ALPHABETS BUTTONS
@@ -133,6 +133,8 @@ const checkExistingAlphabet = (letter) => {
     if (hidden && letterElement == letter) {
       hiddenLetter.innerHTML = letter;
       hasLostLife = false;
+      winCount += 1;
+      gameStatus(randomWord);
     }
   });
 };
@@ -152,6 +154,26 @@ const blocker = (boolean) => {
   alphabetsButtons.forEach((button) => {
     button.disabled = boolean;
   });
+};
+
+const gameStatus = (randomWord) => {
+  if (randomWord.length == winCount) {
+    alert("🍭🍭🍭 YOU ARE THE WINNER 🍭🍭🍭");
+    confetti({
+      particleCount: 700,
+      angle: 60,
+      spread: 55,
+      origin: { x: 0 },
+    });
+    confetti({
+      particleCount: 700,
+      angle: 120,
+      spread: 55,
+      origin: { x: 1 },
+    });
+  } else {
+    return;
+  }
 };
 
 // ----- EVENT LISTENER ----- //

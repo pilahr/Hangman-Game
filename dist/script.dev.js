@@ -5,7 +5,8 @@ var _randomWords = _interopRequireDefault(require("./randomWords.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var alphabetsString = "abcdefghijklmnopqrstuvwxyz";
-var alphabets = alphabetsString.split(""); //  ----- FUNCTION ----- //
+var alphabets = alphabetsString.split("");
+var winCount = 0; //  ----- FUNCTION ----- //
 // INSERT ALPHABETS BUTTONS
 
 var insertLetters = function insertLetters() {
@@ -136,6 +137,8 @@ var checkExistingAlphabet = function checkExistingAlphabet(letter) {
     if (hidden && letterElement == letter) {
       hiddenLetter.innerHTML = letter;
       hasLostLife = false;
+      winCount += 1;
+      gameStatus(randomWord);
     }
   });
 }; // ALPHABETS BUTTON
@@ -154,6 +157,30 @@ var blocker = function blocker(_boolean) {
   alphabetsButtons.forEach(function (button) {
     button.disabled = _boolean;
   });
+};
+
+var gameStatus = function gameStatus(randomWord) {
+  if (randomWord.length == winCount) {
+    alert("🍭🍭🍭 YOU ARE THE WINNER 🍭🍭🍭");
+    confetti({
+      particleCount: 700,
+      angle: 60,
+      spread: 55,
+      origin: {
+        x: 0
+      }
+    });
+    confetti({
+      particleCount: 700,
+      angle: 120,
+      spread: 55,
+      origin: {
+        x: 1
+      }
+    });
+  } else {
+    return;
+  }
 }; // ----- EVENT LISTENER ----- //
 
 
