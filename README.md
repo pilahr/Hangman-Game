@@ -52,3 +52,6 @@ FUNCTIONS EXPLAINED
 
     blocker:
     This function takes a boolean as a parameter to loop over all the alphabet buttons. Then disable the use of the button when the boolean is true.
+
+    gameStatus:
+    This function will alert the winner with the confetti effect when the time the user guesses the letters right is the same with the length of the word.
