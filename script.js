@@ -35,17 +35,18 @@ const addHtmlWord = (letter) => {
   return `<p data-letter="${letter}">_</p>`;
 };
 
+let htmlWord = "";
 const displayWordArea = (word) => {
   for (let i = 0; i < word.length; i++) {
     const letter = word[i];
-    const htmlWord = addHtmlWord(letter);
+    htmlWord = addHtmlWord(letter);
     displayScreen.innerHTML += htmlWord;
   }
 };
 
 // GAME OVER
 const gameOver = () => {
-  if (totalLives.length === 0) {
+  if (remainingLives.length === 0) {
     alert("GAME OVER!  ❌ NO CANDY 🍭🍭🍭 FOR YOU");
     blocker(true);
   } else {
@@ -56,13 +57,13 @@ const gameOver = () => {
 // LIVES
 let hasLostLife = true;
 
-let totalLives = [1, 2, 3, 4, 5];
+let remainingLives = [1, 2, 3, 4, 5];
 
 const showLives = document.querySelector(".container__lives");
 
 const showPlayerLife = () => {
   showLives.innerHTML = "";
-  totalLives.forEach((life) => {
+  remainingLives.forEach((life) => {
     let htmlLife = `<img src="./image/candy.png" />`;
     showLives.innerHTML += htmlLife;
   });
@@ -70,7 +71,7 @@ const showPlayerLife = () => {
 
 const loseOneLife = () => {
   if (hasLostLife) {
-    totalLives.pop();
+    remainingLives.pop();
     showPlayerLife();
     hasLostLife = true;
     gameOver();
@@ -115,7 +116,7 @@ const handleNewGameButtonClick = (event) => {
   });
 
   showLives.innerHTML = "";
-  totalLives = [1, 2, 3, 4, 5];
+  remainingLives = [1, 2, 3, 4, 5];
   showPlayerLife();
 };
 
@@ -136,9 +137,9 @@ const checkExistingAlphabet = (letter) => {
     const letterElement = hiddenLetter.dataset.letter;
     if (hidden && letterElement == letter) {
       hiddenLetter.innerHTML = letter;
+      winCount++;
       hasLostLife = false;
-      winCount += 1;
-      gameStatus(randomWord);
+      gameStatus(htmlWord);
     }
   });
 };
@@ -160,8 +161,8 @@ const blocker = (boolean) => {
   });
 };
 
-const gameStatus = (randomWord) => {
-  if (randomWord.length >= 3 && randomWord.length == winCount) {
+const gameStatus = (htmlWord) => {
+  if (htmlWord.length == winCount && remainingLives.length >= 1) {
     blocker(true);
     alert("🍭🍭🍭 YOU ARE THE WINNER 🍭🍭🍭");
     confetti({
