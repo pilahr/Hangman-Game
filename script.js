@@ -110,6 +110,7 @@ const handleNewGameButtonClick = (event) => {
   randomWord = getRandomWord();
   displayWordArea(randomWord);
   blocker(false);
+  winCount = 0;
 
   alphabetsButtons.forEach((button) => {
     button.style.backgroundColor = "#fcde67";
@@ -139,7 +140,7 @@ const checkExistingAlphabet = (letter) => {
       hiddenLetter.innerHTML = letter;
       winCount++;
       hasLostLife = false;
-      gameStatus(htmlWord, remainingLives, winCount);
+      gameStatus(randomWord, remainingLives, winCount);
     }
   });
 };
@@ -161,8 +162,12 @@ const blocker = (boolean) => {
   });
 };
 
-const gameStatus = (htmlWord, remainingLives, winCount) => {
-  if (htmlWord.length == winCount && remainingLives.length >= 1) {
+const gameStatus = (randomWord, remainingLives, winCount) => {
+  console.log(randomWord.length);
+  console.log(winCount);
+  console.log(remainingLives.length);
+  if (randomWord.length === winCount && remainingLives.length >= 1) {
+    console.log("getting here");
     blocker(true);
     alert("🍭🍭🍭 YOU ARE THE WINNER 🍭🍭🍭");
     confetti({
@@ -177,8 +182,6 @@ const gameStatus = (htmlWord, remainingLives, winCount) => {
       spread: 55,
       origin: { x: 1 },
     });
-  } else {
-    return;
   }
 };
 
