@@ -139,7 +139,7 @@ const checkExistingAlphabet = (letter) => {
       hiddenLetter.innerHTML = letter;
       winCount++;
       hasLostLife = false;
-      gameStatus(htmlWord);
+      gameStatus(htmlWord, remainingLives, winCount);
     }
   });
 };
@@ -161,7 +161,7 @@ const blocker = (boolean) => {
   });
 };
 
-const gameStatus = (htmlWord) => {
+const gameStatus = (htmlWord, remainingLives, winCount) => {
   if (htmlWord.length == winCount && remainingLives.length >= 1) {
     blocker(true);
     alert("🍭🍭🍭 YOU ARE THE WINNER 🍭🍭🍭");
