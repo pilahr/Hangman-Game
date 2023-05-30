@@ -56,13 +56,13 @@ const gameOver = () => {
 // LIVES
 let hasLostLife = true;
 
-let totalLives = [1, 2, 3, 4, 5];
+let remainingLives = [1, 2, 3, 4, 5];
 
 const showLives = document.querySelector(".container__lives");
 
 const showPlayerLife = () => {
   showLives.innerHTML = "";
-  totalLives.forEach((life) => {
+  remainingLives.forEach((life) => {
     let htmlLife = `<img src="./image/candy.png" />`;
     showLives.innerHTML += htmlLife;
   });
@@ -70,7 +70,7 @@ const showPlayerLife = () => {
 
 const loseOneLife = () => {
   if (hasLostLife) {
-    totalLives.pop();
+    remainingLives.pop();
     showPlayerLife();
     hasLostLife = true;
     gameOver();
@@ -115,7 +115,7 @@ const handleNewGameButtonClick = (event) => {
   });
 
   showLives.innerHTML = "";
-  totalLives = [1, 2, 3, 4, 5];
+  remainingLives = [1, 2, 3, 4, 5];
   showPlayerLife();
 };
 
