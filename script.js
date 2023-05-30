@@ -35,17 +35,18 @@ const addHtmlWord = (letter) => {
   return `<p data-letter="${letter}">_</p>`;
 };
 
+let htmlWord = "";
 const displayWordArea = (word) => {
   for (let i = 0; i < word.length; i++) {
     const letter = word[i];
-    const htmlWord = addHtmlWord(letter);
+    htmlWord = addHtmlWord(letter);
     displayScreen.innerHTML += htmlWord;
   }
 };
 
 // GAME OVER
 const gameOver = () => {
-  if (totalLives.length === 0) {
+  if (remainingLives.length === 0) {
     alert("GAME OVER!  ❌ NO CANDY 🍭🍭🍭 FOR YOU");
     blocker(true);
   } else {
@@ -109,6 +110,7 @@ const handleNewGameButtonClick = (event) => {
   randomWord = getRandomWord();
   displayWordArea(randomWord);
   blocker(false);
+  winCount = 0;
 
   alphabetsButtons.forEach((button) => {
     button.style.backgroundColor = "#fcde67";
@@ -136,9 +138,9 @@ const checkExistingAlphabet = (letter) => {
     const letterElement = hiddenLetter.dataset.letter;
     if (hidden && letterElement == letter) {
       hiddenLetter.innerHTML = letter;
+      winCount++;
       hasLostLife = false;
-      winCount += 1;
-      gameStatus(randomWord);
+      gameStatus(randomWord, remainingLives, winCount);
     }
   });
 };
@@ -160,8 +162,9 @@ const blocker = (boolean) => {
   });
 };
 
-const gameStatus = (randomWord) => {
-  if (randomWord.length >= 3 && randomWord.length == winCount) {
+const gameStatus = (randomWord, remainingLives, winCount) => {
+  if (randomWord.length === winCount && remainingLives.length >= 1) {
+    console.log("getting here");
     blocker(true);
     alert("🍭🍭🍭 YOU ARE THE WINNER 🍭🍭🍭");
     confetti({
@@ -176,8 +179,6 @@ const gameStatus = (randomWord) => {
       spread: 55,
       origin: { x: 1 },
     });
-  } else {
-    return;
   }
 };
 
