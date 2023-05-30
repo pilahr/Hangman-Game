@@ -163,9 +163,6 @@ const blocker = (boolean) => {
 };
 
 const gameStatus = (randomWord, remainingLives, winCount) => {
-  console.log(randomWord.length);
-  console.log(winCount);
-  console.log(remainingLives.length);
   if (randomWord.length === winCount && remainingLives.length >= 1) {
     console.log("getting here");
     blocker(true);
